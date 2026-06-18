@@ -26,7 +26,8 @@ export function GlobalGlobe({ regions, insurers, events, selectedRegion, onSelec
       };
     };
 
-    return (feature(countries110 as never, atlas.objects.countries as never) as { features: unknown[] }).features;
+    return (feature(countries110 as never, atlas.objects.countries as never) as unknown as { features: unknown[] })
+      .features;
   }, []);
 
   const projection = useMemo(
